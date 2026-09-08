@@ -1,0 +1,12 @@
+1. Initialize the project
+2. Create a .gitignore file and add the following lines to it:
+   ```
+   node_modules
+   .env
+   .env.*
+   dist
+   !.env.example
+   ```
+3. Run `git init` in the project directory and create a branch named `development` , push the changes to the remote repository.
+
+
