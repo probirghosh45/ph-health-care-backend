@@ -9,4 +9,32 @@
    ```
 3. Run `git init` in the project directory and create a branch named `development` , push the changes to the remote repository.
 
+4. create new branch named "part-1_project-setup_route-controller-service_better-auth-authentication" and push the changes to the remote repository.
+
+4. npm init
+
+5. tsconfig.json -> https://dev.to/justwonder/setting-up-an-express-typescript-server-a-step-by-step-guide-gic
+
+> npm install express
+> npm install -D typescript @types/node @types/express
+> npx tsc --init
+> replace tsconfig.json with the below code_
+{
+  "compilerOptions": {
+    "module": "commonjs",                                
+    "rootDir": "./src",
+    "outDir": "./dist",   
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
+  },
+}
+
+6. > npm i tsx -D
+
+7. From Blog -> Step 5 & 6 Configure server.ts and package.json scripts slightly different from the blog, as we are using  and `tsx watch src/server.ts` for running the server in development mode.
+
+
+
 
