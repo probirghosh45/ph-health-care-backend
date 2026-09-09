@@ -36,5 +36,29 @@
 7. From Blog -> Step 5 & 6 Configure server.ts and package.json scripts slightly different from the blog, as we are using  and `tsx watch src/server.ts` for running the server in development mode.
 
 
+___
+
+8. Create a new file named `app.ts` in the `src` directory and move the express app initialization and middleware setup from `server.ts` to `app.ts`. Export the app from `app.ts` and import it in `server.ts`.
+
+
+9. Create a `.env` file in the root directory and add the following line to it:
+```
+PORT=5000
+```
+10. Create a `.env.example` file in the root directory and add the following line to it:
+```
+PORT=5000
+```
+___
+
+11. add eslint configuration to the project. Create a file named `eslint.config.mjs` in the root directory by following the steps mentioned in the documentation: https://typescript-eslint.io/getting-started/#step-1-installation
+
+
+___
+
+
+
+
+
 
 
