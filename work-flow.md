@@ -67,6 +67,16 @@ ___
 -> npx prisma init --db --output ../generated/prisma
 
 14. update .env file with the database url generated from prisma cloud.
+
+15. prisma related script added to package.json file as below:
+
+```
+    "studio" : "npx prisma studio",
+    "migrate" : "npx prisma migrate",
+    "generate" : "npx prisma generate",
+    "db-push" : "npx prisma db push",
+    "db-pull" : "npx prisma db pull",
+```
 ___
 
 

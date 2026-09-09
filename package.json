@@ -19,6 +19,11 @@
     "build": "tsc",
     "dev": "tsx watch src/server.ts",
     "lint": "npx eslint ./src/**/*.ts",
+    "studio" : "npx prisma studio",
+    "migrate" : "npx prisma migrate",
+    "generate" : "npx prisma generate",
+    "db-push" : "npx prisma db push",
+    "db-pull" : "npx prisma db pull",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
