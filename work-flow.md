@@ -1,84 +1,184 @@
-<!-- Initial Setup -->
+# PH Healthcare Backend — Project Workflow
 
-1. Initialize the project
-2. Create a .gitignore file and add the following lines to it:
-   ```
-   node_modules
-   .env
-   .env.*
-   dist
-   !.env.example
-   ```
-3. Run `git init` in the project directory and create a branch named `development` , push the changes to the remote repository.
+## Initial Setup
 
-4. create new branch named "part-1_project-setup_route-controller-service_better-auth-authentication" and push the changes to the remote repository.
+### 1. Initialize the Project
 
-4. npm init
+Initialize the project.
 
-5. tsconfig.json -> https://dev.to/justwonder/setting-up-an-express-typescript-server-a-step-by-step-guide-gic
+### 2. Create `.gitignore`
 
-> npm install express
-> npm install -D typescript @types/node @types/express
-> npx tsc --init
-> replace tsconfig.json with the below code_
+Create a `.gitignore` file and add the following lines:
+
+```gitignore
+node_modules
+.env
+.env.*
+dist
+!.env.example
+```
+
+### 3. Initialize Git Repository
+
+Run `git init` in the project directory.
+
+Create a branch named `development` and push the changes to the remote repository.
+
+```bash
+git init
+```
+
+### 4. Create the Part 1 Branch
+
+Create a new branch named:
+
+```text
+part-1_project-setup_route-controller-service_better-auth-authentication
+```
+
+Push the changes to the remote repository.
+
+### 5. Initialize npm
+
+Initialize the Node.js project:
+
+```bash
+npm init
+```
+
+### 6. Configure TypeScript
+
+Install Express and the required TypeScript dependencies:
+
+```bash
+npm install express
+npm install -D typescript @types/node @types/express
+```
+
+Initialize the TypeScript configuration:
+
+```bash
+npx tsc --init
+```
+
+Replace the generated `tsconfig.json` with:
+
+```json
 {
   "compilerOptions": {
-    "module": "commonjs",                                
+    "module": "commonjs",
     "rootDir": "./src",
-    "outDir": "./dist",   
+    "outDir": "./dist",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true
-  },
+  }
 }
-
-6. > npm i tsx -D
-
-7. From Blog -> Step 5 & 6 Configure server.ts and package.json scripts slightly different from the blog, as we are using  and `tsx watch src/server.ts` for running the server in development mode.
-
-
-___
-
-8. Create a new file named `app.ts` in the `src` directory and move the express app initialization and middleware setup from `server.ts` to `app.ts`. Export the app from `app.ts` and import it in `server.ts`.
-
-
-9. Create a `.env` file in the root directory and add the following line to it:
 ```
+
+Reference: [Setting Up an Express TypeScript Server](https://dev.to/justwonder/setting-up-an-express-typescript-server-a-step-by-step-guide-gic)
+
+### 7. Install `tsx`
+
+Install `tsx` as a development dependency:
+
+```bash
+npm install -D tsx
+```
+
+From the blog's **Step 5 & 6**, configure `server.ts` and `package.json` scripts slightly differently.
+
+We are using:
+
+```bash
+tsx watch src/server.ts
+```
+
+to run the server in development mode.
+
+### 8. Create `app.ts`
+
+Create a new file named `app.ts` inside the `src` directory.
+
+Move the Express app initialization and middleware setup from `server.ts` to `app.ts`.
+
+Export the Express app from `app.ts` and import it into `server.ts`.
+
+---
+
+## Environment Configuration
+
+### 9. Create `.env`
+
+Create a `.env` file in the root directory and add:
+
+```env
 PORT=5000
 ```
-10. Create a `.env.example` file in the root directory and add the following line to it:
-```
+
+### 10. Create `.env.example`
+
+Create a `.env.example` file in the root directory and add:
+
+```env
 PORT=5000
 ```
-___
 
-<!-- ESLint Configuration -->
+---
 
-11. add eslint configuration to the project. Create a file named `eslint.config.mjs` in the root directory by following the steps mentioned in the documentation: https://typescript-eslint.io/getting-started/#step-1-installation
+## ESLint Configuration
 
+### 11. Configure ESLint
 
-___
+Add ESLint configuration to the project.
 
-<!-- Prisma Configuration -->
-12. by following the steps mentioned in the documentation: https://www.prisma.io/docs/v7/prisma-postgres/quickstart/prisma-orm
+Create a file named:
 
-13. store data in prisma database by following the steps _
--> npx prisma init --db --output ../generated/prisma
-
-14. update .env file with the database url generated from prisma cloud.
-
-15. prisma related script added to package.json file as below:
-
+```text
+eslint.config.mjs
 ```
-    "studio" : "npx prisma studio",
-    "migrate" : "npx prisma migrate",
-    "generate" : "npx prisma generate",
-    "db-push" : "npx prisma db push",
-    "db-pull" : "npx prisma db pull",
+
+in the root directory.
+
+Follow the steps from the official TypeScript ESLint documentation:
+
+https://typescript-eslint.io/getting-started/#step-1-installation
+
+---
+
+## Prisma Configuration
+
+### 12. Configure Prisma
+
+Configure Prisma by following the Prisma ORM with Prisma Postgres documentation:
+
+https://www.prisma.io/docs/v7/prisma-postgres/quickstart/prisma-orm
+
+### 13. Initialize Prisma Database
+
+Initialize Prisma and create the Prisma Postgres database:
+
+```bash
+npx prisma init --db --output ../generated/prisma
 ```
-___
 
+### 14. Configure the Database URL
 
+Update the `.env` file with the database URL generated from Prisma Cloud.
 
+### 15. Add Prisma Scripts
 
+Add the following Prisma-related scripts to `package.json`:
+
+```json
+{
+  "scripts": {
+    "studio": "npx prisma studio",
+    "migrate": "npx prisma migrate",
+    "generate": "npx prisma generate",
+    "db-push": "npx prisma db push",
+    "db-pull": "npx prisma db pull"
+  }
+}
+```
