@@ -1,11 +1,16 @@
 {
   "compilerOptions": {
-    "module": "commonjs",                                
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "target": "ES2023",
     "rootDir": "./src",
-    "outDir": "./dist",   
+    "outDir": "./dist",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
+    "ignoreDeprecations": "6.0",
     "forceConsistentCasingInFileNames": true
   },
+  "include": ["src/**/*.ts"],
+  "exclude": ["prisma7.config.ts"]
 }

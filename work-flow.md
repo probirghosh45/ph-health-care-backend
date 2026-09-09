@@ -1,3 +1,5 @@
+<!-- Initial Setup -->
+
 1. Initialize the project
 2. Create a .gitignore file and add the following lines to it:
    ```
@@ -51,13 +53,21 @@ PORT=5000
 ```
 ___
 
+<!-- ESLint Configuration -->
+
 11. add eslint configuration to the project. Create a file named `eslint.config.mjs` in the root directory by following the steps mentioned in the documentation: https://typescript-eslint.io/getting-started/#step-1-installation
 
 
 ___
 
+<!-- Prisma Configuration -->
+12. by following the steps mentioned in the documentation: https://www.prisma.io/docs/v7/prisma-postgres/quickstart/prisma-orm
 
+13. store data in prisma database by following the steps _
+-> npx prisma init --db --output ../generated/prisma
 
+14. update .env file with the database url generated from prisma cloud.
+___
 
 
 
