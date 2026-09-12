@@ -277,4 +277,4 @@ This separation helps keep:
 * **Better Auth** responsible for authentication
 * **Modules** responsible for organizing related functionality
 
-As the project grows, new modules can be added without putting everything into a single large file.
+As the project grows, new modules can be added without putting everything into a single large file.  
