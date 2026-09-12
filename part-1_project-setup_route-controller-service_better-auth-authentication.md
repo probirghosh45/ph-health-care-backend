@@ -2,60 +2,13 @@
 
 > This document explains the folder structure, what has been done, and why.
 
-## `part-1_project-setup_route-controller-service_better-auth-authentication`
+## Branch
 
-### 1. Initial Configuration
+`part-1_project-setup_route-controller-service_better-auth-authentication`
 
-Initial project configuration has been completed as documented in `work-flow.md`.
+---
 
-### 2. Folder Structure
-
-#### Specialty Model & Prisma Schema
-
-```text
-src
-└── app
-    ├── module
-    │   └── specialty
-    │       ├── specialty.controller.ts
-    │       ├── specialty.route.ts
-    │       └── specialty.service.ts
-    │
-    └── prisma
-        └── schema
-            ├── specialty.prisma
-            └── schema.prisma
-```
-
-#### Better Auth Authentication
-
-```text
-src
-└── app
-    └── module
-        └── auth
-            ├── auth.controller.ts
-            ├── auth.route.ts
-            └── auth.service.ts
-```
-
-### 3. User Model Schema Updated
-
-The `User` model schema has been updated with:
-
-* `UserStatus`
-* `Role`
-
-
-__
-
-# Part 1 — Project Setup, Route-Controller-Service & Better Auth Authentication
-
-> This document explains the folder structure, what has been done, and why.
-
-## `part-1_project-setup_route-controller-service_better-auth-authentication`
-
-### 1. Initial Configuration
+## 1. Initial Configuration
 
 Initial project configuration has been completed as documented in `work-flow.md`.
 
@@ -63,33 +16,37 @@ Initial project configuration has been completed as documented in `work-flow.md`
 
 ## 2. Folder Structure
 
-### Specialty Model & Prisma Schema
+### Specialty Prisma Schema & Model
 
 ```text
+root directory
+ └── prisma
+      └── schema
+           └── specialty.prisma
+
 src
-└── app
-    ├── module
-    │   └── specialty
-    │       ├── specialty.controller.ts
-    │       ├── specialty.route.ts
-    │       └── specialty.service.ts
-    │
-    └── prisma
-        └── schema
-            ├── specialty.prisma
-            └── schema.prisma
+└── module
+    └── specialty
+        ├── specialty.controller.ts
+        ├── specialty.route.ts
+        └── specialty.service.ts
 ```
 
 ### Better Auth Authentication
 
 ```text
+root directory
+ └── prisma
+      └── schema
+           └── auth.prisma
+
 src
 └── app
     ├── lib
     │   └── auth.ts
-    │           
-    └──module
-         └──auth
+    │
+    └── module
+        └── auth
             ├── auth.controller.ts
             ├── auth.route.ts
             └── auth.service.ts
@@ -190,6 +147,25 @@ This approach makes it easier to manage multiple models instead of keeping every
 ---
 
 ## 5. Better Auth Authentication
+
+Better Auth was added to handle authentication in the application.
+
+### Resources
+
+* Step 1–6: https://better-auth.com/docs/installation
+* Next Step — Generate: https://better-auth.com/docs/concepts/cli
+
+### Installation
+
+```bash
+npm install better-auth
+```
+
+### Generate Better Auth Schema
+
+```bash
+npx auth@latest generate --output ./prisma/schema/auth.prisma --config ./src/app/lib/auth.ts
+```
 
 A separate `auth` module has been created for authentication-related functionality.
 
@@ -300,4 +276,3 @@ This separation helps keep:
 * **Modules** responsible for organizing related functionality
 
 As the project grows, new modules can be added without putting everything into a single large file.
-
