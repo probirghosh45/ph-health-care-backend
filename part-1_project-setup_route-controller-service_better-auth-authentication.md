@@ -54,7 +54,45 @@ src
 
 ---
 
-## 3. Specialty Module
+## 3. Specialty Prisma Schema
+
+The Prisma schema is separated into different files to keep the schema organized as the project grows.
+
+### `prisma/schema/specialty.prisma`
+
+Contains the Prisma model related to `Specialty`.
+
+Example:
+
+```prisma
+model Specialty {
+  id          String    @id @default(uuid(7))
+  title       String    @unique @db.Text
+  description String?   @db.Text
+  icon        String?   @db.VarChar(255)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  isDeleted   Boolean   @default(false)
+  deletedAt   DateTime?
+
+  @@index([title], name: "specialty_title_index")
+  @@index([isDeleted], name: "specialty_isDeleted_index")
+  @@map("specialties")
+}
+```
+
+### `schema.prisma`
+
+Acts as the main Prisma schema file and combines the individual schema files.
+
+This approach makes it easier to manage multiple models instead of keeping every model inside one large schema file.
+
+
+---
+
+
+## 4. Specialty Module
 
 The Specialty module is organized using a **Route → Controller → Service** architecture.
 
@@ -107,42 +145,6 @@ Database
 ```
 
 This separation keeps the code organized and easier to maintain.
-
----
-
-## 4. Prisma Schema
-
-The Prisma schema is separated into different files to keep the schema organized as the project grows.
-
-### `prisma/schema/specialty.prisma`
-
-Contains the Prisma model related to `Specialty`.
-
-Example:
-
-```prisma
-model Specialty {
-  id          String    @id @default(uuid(7))
-  title       String    @unique @db.Text
-  description String?   @db.Text
-  icon        String?   @db.VarChar(255)
-  createdAt   DateTime  @default(now())
-  updatedAt   DateTime  @updatedAt
-
-  isDeleted   Boolean   @default(false)
-  deletedAt   DateTime?
-
-  @@index([title], name: "specialty_title_index")
-  @@index([isDeleted], name: "specialty_isDeleted_index")
-  @@map("specialties")
-}
-```
-
-### `schema.prisma`
-
-Acts as the main Prisma schema file and combines the individual schema files.
-
-This approach makes it easier to manage multiple models instead of keeping every model inside one large schema file.
 
 ---
 
