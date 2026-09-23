@@ -31,8 +31,8 @@ src
     │   └── sendResponse.ts
     │
     └── module
-        └── patient
-            └── patient.controller.ts
+        └── specialty
+            └── specialty.controller.ts [updated]
 
 prisma7.config.ts
 tsconfig.json
