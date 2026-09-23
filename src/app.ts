@@ -1,4 +1,5 @@
 import express, { Application, Request, Response } from "express";
+import { notFound } from "./app/middleware/notFound";
 import { IndexRoutes } from "./app/routes";
 
 const app: Application = express();
@@ -15,5 +16,7 @@ app.use("/api/v1", IndexRoutes);
 app.get("/", (req: Request, res: Response) => {
   res.send("Welcome to the PH Health Care Management Backend API!");
 });
+
+app.use(notFound);
 
 export default app;
