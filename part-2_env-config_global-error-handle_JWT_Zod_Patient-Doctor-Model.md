@@ -31,8 +31,31 @@ src
     │   └── sendResponse.ts
     │
     └── module
-        └── specialty
-            └── specialty.controller.ts [updated]
+    |   └── specialty
+    |        └── specialty.controller.ts [updated]
+    |
+    └── module
+    |   └── user
+    |       └── user.interface.ts
+    |       └── user.service.ts
+    |       └── user.controller.ts
+    |       └── user.route.ts
+    |
+    └── module
+    |   └── doctor
+    |        └── doctor.interface.ts
+    |        └── doctor.service.ts
+    |        └── doctor.controller.ts
+    |        └── doctor.route.ts
+    └── middleware
+    |   └── validateRequest.ts [for zod validation]
+    |   
+    └── module 
+        └── user
+            └── user.validation.ts [for zod validation]
+            └── user.route.ts [updated to include validation]
+
+
 
 prisma7.config.ts
 tsconfig.json
@@ -49,11 +72,11 @@ Added centralized environment variable configuration and validation.
 
 This file loads required environment variables such as:
 
-* `NODE_ENV`
-* `PORT`
-* `DATABASE_URL`
-* `BETTER_AUTH_SECRET`
-* `BETTER_AUTH_URL`
+- `NODE_ENV`
+- `PORT`
+- `DATABASE_URL`
+- `BETTER_AUTH_SECRET`
+- `BETTER_AUTH_URL`
 
 It ensures that required environment variables are available before the application starts.
 
@@ -92,7 +115,7 @@ Added a centralized global error-handling middleware.
 It receives errors forwarded through:
 
 ```ts
-next(error)
+next(error);
 ```
 
 and handles them in one common location.
@@ -111,9 +134,9 @@ Instead of writing repetitive `try...catch` blocks inside every async controller
 
 ```ts
 try {
-    // controller logic
+  // controller logic
 } catch (error) {
-    next(error);
+  next(error);
 }
 ```
 
@@ -137,18 +160,18 @@ Added a centralized response utility for sending API responses in a consistent f
 
 The helper handles common response properties such as:
 
-* HTTP status code
-* Success status
-* Message
-* Response data
+- HTTP status code
+- Success status
+- Message
+- Response data
 
 Example response structure:
 
 ```json
 {
-    "success": true,
-    "message": "Data retrieved successfully",
-    "data": []
+  "success": true,
+  "message": "Data retrieved successfully",
+  "data": []
 }
 ```
 
@@ -185,9 +208,9 @@ The database `url` configuration was updated to use the application's environmen
 
 Updated the TypeScript configuration:
 
-* Updated `rootDir`
-* Updated `include`
-* Updated `exclude`
+- Updated `rootDir`
+- Updated `include`
+- Updated `exclude`
 
 These changes ensure that TypeScript correctly identifies the project's source files and compilation boundaries.
 
@@ -197,13 +220,13 @@ These changes ensure that TypeScript correctly identifies the project's source f
 
 Part 2 focuses on the following backend features:
 
-* Environment configuration
-* Global error handling
-* JWT authentication
-* Zod validation
-* Patient model
-* Doctor model
-* Related backend configuration and middleware
+- Environment configuration
+- Global error handling
+- JWT authentication
+- Zod validation
+- Patient model
+- Doctor model
+- Related backend configuration and middleware
 
 ---
 
