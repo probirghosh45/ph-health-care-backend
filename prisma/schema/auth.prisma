@@ -1,15 +1,4 @@
-enum Role {
-  SUPER_ADMIN
-  ADMIN
-  DOCTOR
-  PATIENT
-}
 
-enum UserStatus {
-  ACTIVE
-  BLOCKED
-  DELETED
-}
 
 model User {
   id                 String     @id
@@ -30,6 +19,7 @@ model User {
   @@unique([email])
   @@map("user")
   patients Patient[]
+  doctors Doctor[]
 }
 
 model Session {
